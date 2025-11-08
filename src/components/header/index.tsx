@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils'
+
 import NavigationMenu from './navigation-menu'
 
 type HeaderProps = {
@@ -6,8 +8,11 @@ type HeaderProps = {
 
 export default function Header({ className }: HeaderProps) {
   return (
-    <header className={className}>
-      <NavigationMenu />
+    <header className={cn('w-full p-7', className)}>
+      <div className='mx-auto flex w-xs flex-row'>
+        <NavigationMenu />
+        <div>Play@</div>
+      </div>
     </header>
   )
 }
