@@ -9,12 +9,14 @@ type HeaderProps = {
 
 export default function Header({ className }: HeaderProps) {
   return (
-    <header className={cn('w-full p-7', className)}>
-      <div className='mx-auto flex w-xs flex-row items-center'>
-        <NavigationMenu />
-        <div className='light:border-black h-4 border-l dark:border-white' />
-        <ThemeModeToggle />
-      </div>
-    </header>
+    <div
+      className={cn(
+        'border-primary mx-auto flex w-fit items-center justify-center gap-2 rounded-xl border-1 py-2 pr-2 pl-4 text-sm md:text-base md:font-medium lg:text-lg',
+        className
+      )}
+    >
+      <NavigationMenu />
+      <ThemeModeToggle />
+    </div>
   )
 }

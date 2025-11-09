@@ -11,7 +11,16 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>daily-pulse</title>
+    <title>maksy-site</title>
+    <script>
+      // Prevent flash of white background by applying theme before render
+      ;(function () {
+        const storageKey = 'vite-ui-theme'
+        const defaultTheme = 'dark'
+        const theme = localStorage.getItem(storageKey) || defaultTheme
+        document.documentElement.classList.add(theme)
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
