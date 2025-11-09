@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 import { cn } from '@/lib/utils'
 
 type NavigationMenuProps = {
@@ -5,20 +7,54 @@ type NavigationMenuProps = {
 }
 
 export default function NavigationMenu({ className }: NavigationMenuProps) {
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    cn(
+      'transition-colors',
+      isActive ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+    )
+
   return (
-    <nav className={cn('mx-auto', className)}>
-      <ul className='flex flex-row justify-center gap-4'>
+    <nav className={cn('', className)}>
+      <ul className='flex flex-row justify-center gap-3'>
         <li>
-          <a href='/'>Home</a>
+          <NavLink
+            to='/'
+            className={linkClass}
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href='/projects'>Projects</a>
+          <NavLink
+            to='/projects'
+            className={linkClass}
+          >
+            Projects
+          </NavLink>
         </li>
         <li>
-          <a href='/about'>About</a>
+          <NavLink
+            to='/about'
+            className={linkClass}
+          >
+            About
+          </NavLink>
         </li>
         <li>
-          <a href='/contact'>Contact</a>
+          <NavLink
+            to='/styles'
+            className={linkClass}
+          >
+            Styles
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/contact'
+            className={linkClass}
+          >
+            Contact
+          </NavLink>
         </li>
       </ul>
     </nav>
